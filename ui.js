@@ -93,5 +93,3 @@ change2 = (e) => {
 
 currenciesFrom.addEventListener('click', change);
 currenciesTo.addEventListener('click', change2);
-
-

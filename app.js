@@ -3,6 +3,7 @@ const amountElement = document.querySelector('#amount');
 const firstSelect = document.querySelector('#from');
 const secondSelect = document.querySelector('#to');
 
+const resultField = document.querySelectorAll('#amount')[1]
 
 const currency = new Currency('RUB', 'USD');
 
@@ -21,7 +22,10 @@ function exchangeCurrency() {
     currency.changeAmount(amountElement.value);
 
     currency.exchange()
-        .then(result => console.log(result))
+        .then(result => {
+            console.log(result);
+            resultField.value = result;
+        })
         .catch(err => console.log(err));
 
 
@@ -33,7 +37,11 @@ function exchangeFrom(e) {
         currency.changeFirstCurrency(e.target.textContent);
 
         currency.exchange()
-            .then(result => console.log(result))
+            .then(result => {
+                console.log(result);
+
+                resultField.value = result;
+            })
             .catch(err => console.log(err));
 
 
@@ -44,7 +52,11 @@ function exchangeFrom(e) {
         currency.changeFirstCurrency(e.target.textContent);
 
         currency.exchange()
-            .then(result => console.log(result))
+            .then(result => {
+                console.log(result);
+
+                resultField.value = result;
+            })
             .catch(err => console.log(err));
 
 
@@ -54,7 +66,11 @@ function exchangeFrom(e) {
         currency.changeFirstCurrency(e.target.textContent);
 
         currency.exchange()
-            .then(result => console.log(result))
+            .then(result => {
+                console.log(result);
+
+                resultField.value = result;
+            })
             .catch(err => console.log(err));
 
 
@@ -64,7 +80,11 @@ function exchangeFrom(e) {
         currency.changeFirstCurrency(e.target.textContent);
 
         currency.exchange()
-            .then(result => console.log(result))
+            .then(result => {
+                console.log(result);
+
+                resultField.value = result;
+            })
             .catch(err => console.log(err));
 
 
@@ -76,29 +96,45 @@ function exchangeTo(e) {
         console.log('men cevrilecek ruble yem');
         currency.changeSecondCurrency(e.target.textContent);
         currency.exchange()
-        .then(result => console.log(result))
-        .catch(err => console.log(err));
+            .then(result => {
+                console.log(result);
+
+                resultField.value = result;
+            })
+            .catch(err => console.log(err));
     }
     else if (e.target.textContent == 'USD') {
         console.log('men cevrilecek usd yem');
         currency.changeSecondCurrency(e.target.textContent);
         currency.exchange()
-        .then(result => console.log(result))
-        .catch(err => console.log(err));
+            .then(result => {
+                console.log(result);
+
+                resultField.value = result;
+            })
+            .catch(err => console.log(err));
     }
     else if (e.target.textContent == 'EUR') {
         console.log('men cevrilecek eur am');
         currency.changeSecondCurrency(e.target.textContent);
         currency.exchange()
-        .then(result => console.log(result))
-        .catch(err => console.log(err));
+            .then(result => {
+                console.log(result);
+
+                resultField.value = result;
+            })
+            .catch(err => console.log(err));
     }
     else if (e.target.textContent == 'GBP') {
         console.log('men cevrilecek GBP am')
         currency.changeSecondCurrency(e.target.textContent);
         currency.exchange()
-        .then(result => console.log(result))
-        .catch(err => console.log(err));
+            .then(result => {
+                console.log(result);
+
+                resultField.value = result;
+            })
+            .catch(err => console.log(err));
     }
 
 }
