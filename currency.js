@@ -25,7 +25,6 @@ class Currency {
             }, 1000);
 
             amountElement.value = '';
-            console.log(section)
 
         }
 
@@ -36,7 +35,9 @@ class Currency {
                 .then(data => {
                     const rate = (data.rates[this.secondCurrency]);
 
-                    console.log(data)
+                    // console.log(data)
+
+                    console.log(this.amount)
 
                     const newAmount = Number(this.amount);
 

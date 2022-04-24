@@ -24,9 +24,8 @@ function addEventListener() {
     secondSelect.addEventListener('click', exchangeTo);
 }
 
-function exchangeCurrency() {
 
-    console.log(amountElement.value)
+function exchangeCurrency() {
 
     currency.changeAmount(amountElement.value);
 
@@ -67,7 +66,6 @@ function exchangeFrom(e) {
         console.log('men usd yem');
         currency.changeFirstCurrency(e.target.textContent);
 
-
         currency.exchange()
             .then(result => {
                 console.log(result);
@@ -80,18 +78,11 @@ function exchangeFrom(e) {
                 }
             })
             .catch(err => console.log(err));
-
-
-
     }
     else if (e.target.textContent == 'EUR') {
         console.log('men eur am');
         currency.changeFirstCurrency(e.target.textContent);
 
-
-
-
-
         currency.exchange()
             .then(result => {
                 console.log(result);
@@ -104,18 +95,12 @@ function exchangeFrom(e) {
                 }
             })
             .catch(err => console.log(err));
-
-
 
     }
     else if (e.target.textContent == 'GBP') {
         console.log('men GBP am')
         currency.changeFirstCurrency(e.target.textContent);
 
-
-
-
-
         currency.exchange()
             .then(result => {
                 console.log(result);
@@ -128,7 +113,6 @@ function exchangeFrom(e) {
                 }
             })
             .catch(err => console.log(err));
-
 
     }
 }
@@ -138,7 +122,6 @@ function exchangeTo(e) {
         console.log('men cevrilecek ruble yem');
         currency.changeSecondCurrency(e.target.textContent);
 
-
         currency.exchange()
             .then(result => {
                 console.log(result);
@@ -151,8 +134,6 @@ function exchangeTo(e) {
                 }
             })
             .catch(err => console.log(err));
-
-
 
 
     }
@@ -160,9 +141,6 @@ function exchangeTo(e) {
         console.log('men cevrilecek usd yem');
         currency.changeSecondCurrency(e.target.textContent);
 
-
-
-
         currency.exchange()
             .then(result => {
                 console.log(result);
@@ -175,7 +153,6 @@ function exchangeTo(e) {
                 }
             })
             .catch(err => console.log(err));
-
 
     }
     else if (e.target.textContent == 'EUR') {
@@ -199,9 +176,6 @@ function exchangeTo(e) {
     else if (e.target.textContent == 'GBP') {
         console.log('men cevrilecek GBP am')
         currency.changeSecondCurrency(e.target.textContent);
-
-
-
 
         currency.exchange()
             .then(result => {
