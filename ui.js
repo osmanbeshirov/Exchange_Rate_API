@@ -54,8 +54,6 @@ change2 = (e) => {
             item.style = 'background: #fff; color: #C6C6C6'
         })
         e.target.style = "background: #833AE0; color: #fff";
-
-
     }
 
     else if (e.target.textContent == 'USD') {

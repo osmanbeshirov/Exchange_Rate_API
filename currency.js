@@ -42,8 +42,6 @@ class Currency {
 
                     let result = (rate * newAmount).toFixed(4);
 
-                    // console.log(data);
-
                     let fromRate = document.querySelector('#fromRate');
                     let toRate = document.querySelector('#toRate');
                     fromRate.textContent = `1 ${this.firstCurrency} = ${(rate).toFixed(4)} ${this.secondCurrency}`;

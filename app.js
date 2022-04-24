@@ -10,8 +10,16 @@ const currency = new Currency('RUB', 'USD');
 addEventListener();
 
 function addEventListener() {
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('https://api.exchangerate.host/latest?base=RUB')
+            .then((res) => res.json())
+            .then((data) => {
+                fromRate.textContent = `1 RUB = ${(data.rates['USD']).toFixed(4)} USD`;
+                toRate.textContent = `1 USD = ${(1 / (data.rates['USD'])).toFixed(4)} RUB`
+            })
+            .catch((err) => console.log(err))
+    })
     amountElement.addEventListener('input', exchangeCurrency);
-
     firstSelect.addEventListener('click', exchangeFrom);
     secondSelect.addEventListener('click', exchangeTo);
 }
@@ -131,8 +139,6 @@ function exchangeTo(e) {
         currency.changeSecondCurrency(e.target.textContent);
 
 
-
-
         currency.exchange()
             .then(result => {
                 console.log(result);
@@ -175,9 +181,6 @@ function exchangeTo(e) {
     else if (e.target.textContent == 'EUR') {
         console.log('men cevrilecek eur am');
         currency.changeSecondCurrency(e.target.textContent);
-
-
-
 
         currency.exchange()
             .then(result => {
