@@ -23,8 +23,6 @@ change = (e) => {
 
         e.target.style = "background: #833AE0; color: #fff";
 
-
-
         let choosen = document.querySelector('#choosen')
 
     }
@@ -93,3 +91,4 @@ change2 = (e) => {
 
 currenciesFrom.addEventListener('click', change);
 currenciesTo.addEventListener('click', change2);
+

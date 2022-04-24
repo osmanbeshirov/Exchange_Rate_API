@@ -86,6 +86,12 @@
     height: 32px;
 }
 
+#main .main .alert {
+    margin-top: 30px;
+    text-align: center;
+    width: 645px;
+}
+
 #main section {
     display: flex;
     margin-top: 33px;
