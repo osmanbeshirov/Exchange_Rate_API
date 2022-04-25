@@ -7,12 +7,10 @@ class Currency {
         this.amount = null;
     }
 
-    exchange() {
+    alert(message){
 
-        if (this.firstCurrency == this.secondCurrency) {
-
-            const div = document.createElement('div');
-            div.textContent = "Eyni valyutanı bir-birinə çevirməyinizə ehtiyac yoxdur..."
+        const div = document.createElement('div');
+            div.textContent = message;
             div.className = 'alert alert-danger';
             div.style.display = 'block'
 
@@ -26,6 +24,14 @@ class Currency {
 
             amountElement.value = '';
 
+    }
+
+    exchange() {
+
+        if (this.firstCurrency == this.secondCurrency) {
+
+            this.alert("Eyni valyutanı bir-birinə çevirməyinizə ehtiyac yoxdur...");
+
         }
 
         return new Promise((resolve, reject) => {
@@ -37,7 +43,7 @@ class Currency {
 
                     // console.log(data)
 
-                    console.log(this.amount)
+                    // console.log(this.amount)
 
                     const newAmount = Number(this.amount);
 
@@ -55,7 +61,6 @@ class Currency {
         })
 
     }
-
     changeAmount(amount) {
         this.amount = amount;
     }

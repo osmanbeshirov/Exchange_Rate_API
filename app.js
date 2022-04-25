@@ -25,23 +25,56 @@ function addEventListener() {
 }
 
 
+
 function exchangeCurrency() {
 
-    currency.changeAmount(amountElement.value);
+    amountElement.value = amountElement.value.replace(/ /g, '');
 
-    currency.exchange()
-        .then(result => {
-            console.log(result);
+    if (isNaN(amountElement.value)) {
+        currency.alert('Yalnız rəqəm tipli dəyərlər daxil edə bilərsiniz...');
+        amountElement.value = '';
+        resultField.value = '';
+    }
 
-            if (amountElement.value == 0) {
-                resultField.value = ""
-            }
-            else {
-                resultField.value = result;
-            }
-        })
-    // .catch(err => console.log(err));
+    else {
+        let yeni = Number(amountElement.value).toLocaleString().replace(/,/g, ' ');
+        
+        let gonderilen = yeni.replace(/ /g, '');
+
+        // console.log(`men gonderilen deyerem ${gonderilen}`)
+        // console.log(`inputa gedecek olan ${yeni}`)
+
+        // console.log(`hal hazirda metoda gonderilen ${amountElement.value}`)
+
+        amountElement.value = yeni;
+
+        currency.changeAmount(gonderilen);
+
+
+        currency.exchange()
+            .then(result => {
+                console.log(result);
+
+                if (amountElement.value == 0) {
+                    resultField.value = ""
+                }
+
+                else {
+                    resultField.value = result;
+                }
+            })
+        // .catch(err => console.log(err));
+
+    }
+
+
+
 }
+
+
+
+
+
 
 function exchangeFrom(e) {
     if (e.target.textContent == 'RUB') {
@@ -60,7 +93,6 @@ function exchangeFrom(e) {
                 }
             })
             .catch(err => console.log(err));
-
     }
     else if (e.target.textContent == 'USD') {
         console.log('men usd yem');
