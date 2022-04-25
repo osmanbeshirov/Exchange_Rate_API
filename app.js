@@ -24,31 +24,39 @@ function addEventListener() {
     secondSelect.addEventListener('click', exchangeTo);
 }
 
-
-
 function exchangeCurrency() {
 
     amountElement.value = amountElement.value.replace(/ /g, '');
 
-    if (isNaN(amountElement.value)) {
-        currency.alert('Yalnız rəqəm tipli dəyərlər daxil edə bilərsiniz...');
+    // if (isNaN(amountElement.value)) {
+    //     currency.alert('Yalnız rəqəm tipli dəyərlər daxil edə bilərsiniz...');
+    //     amountElement.value = '';
+    //     resultField.value = '';
+    // }
+
+    if (amountElement.value.indexOf('.') == -1 && amountElement.value.match(/[a-z]/g)) {
+        currency.alert('noqte yoxdu amma herf var');
+        console.log(amountElement.value)
         amountElement.value = '';
         resultField.value = '';
     }
 
     else {
-        let yeni = Number(amountElement.value).toLocaleString().replace(/,/g, ' ');
-        
-        let gonderilen = yeni.replace(/ /g, '');
 
-        // console.log(`men gonderilen deyerem ${gonderilen}`)
-        // console.log(`inputa gedecek olan ${yeni}`)
+        if (amountElement.value.indexOf('.') == -1) {
 
-        // console.log(`hal hazirda metoda gonderilen ${amountElement.value}`)
+            let yeni = Number(amountElement.value).toLocaleString().replace(/,/g, ' ');
 
-        amountElement.value = yeni;
+            let gonderilen = yeni.replace(/ /g, '');
 
-        currency.changeAmount(gonderilen);
+            amountElement.value = yeni;
+
+            currency.changeAmount(gonderilen);
+        }
+
+        else {
+            currency.changeAmount(amountElement.value)
+        }
 
 
         currency.exchange()
@@ -66,6 +74,10 @@ function exchangeCurrency() {
         // .catch(err => console.log(err));
 
     }
+
+
+
+
 
 
 

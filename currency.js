@@ -7,23 +7,22 @@ class Currency {
         this.amount = null;
     }
 
-    alert(message){
+    alert(message) {
 
         const div = document.createElement('div');
-            div.textContent = message;
-            div.className = 'alert alert-danger';
-            div.style.display = 'block'
+        div.textContent = message;
+        div.className = 'alert alert-danger';
+        div.style.display = 'block'
 
-            const section = document.querySelector('.main');
+        const section = document.querySelector('.main');
 
-            section.append(div);
+        section.append(div);
 
-            setTimeout(() => {
-                div.style.display = 'none'
-            }, 1000);
+        setTimeout(() => {
+            div.style.display = 'none'
+        }, 1000);
 
-            amountElement.value = '';
-
+        amountElement.value = '';
     }
 
     exchange() {
