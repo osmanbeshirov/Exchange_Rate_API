@@ -26,24 +26,23 @@ function addEventListener() {
 }
 
 function changeComma(e) {
-
     if (amountElement.value.includes(',')) {
         let newFilterComma = amountElement.value.replace(',', '.');
         amountElement.value = newFilterComma;
     }
-
 }
 
 function exchangeCurrency() {
 
     amountElement.value = amountElement.value.replace(/ /g, '');
 
-    if ((amountElement.value.indexOf(',') == -1 || amountElement.value.indexOf('.') == -1) && amountElement.value.match(/[a-z]/g)) {
-        currency.alert('Hərf daxil edə bilmərsiniz...');
-        console.log(amountElement.value);
-        amountElement.value = '';
+    if ((amountElement.value.indexOf(',') == -1 || amountElement.value.indexOf('.') == -1) && amountElement.value.match(/[a-z&\/\\#+()$~%'"`:*?<>{}-]/g)) {
+        currency.alert('Yalnız ədəq tipli dəyişənlər daxil edə bilərsiniz...');
 
+        amountElement.value = '';
         resultField.value = '';
+
+        // /[a-z]/g
     }
 
     else {
