@@ -36,7 +36,7 @@ function exchangeCurrency() {
 
     amountElement.value = amountElement.value.replace(/ /g, '');
 
-    if ((amountElement.value.indexOf(',') == -1 || amountElement.value.indexOf('.') == -1) && amountElement.value.match(/[a-z&\/\\#+()$~%'"`:*?<>{}-]/g)) {
+    if ((amountElement.value.indexOf(',') == -1 || amountElement.value.indexOf('.') == -1) && amountElement.value.match(/[a-z&\/\\_^#@+()$~%'"`!|:*?<>{}-]/g)) {
         currency.alert('Yalnız ədəq tipli dəyişənlər daxil edə bilərsiniz...');
 
         amountElement.value = '';
