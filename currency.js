@@ -56,7 +56,7 @@ class Currency {
 
                     resolve(result);
                 })
-                .catch(err => reject(err))
+                .catch(err =>{this.alert('Network error');reject(err)})
         })
 
     }
